@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package contract.v1;
+message Events {
+    repeated Cryptocovenv1_Approval cryptocovenv1_approvals = 1;
+    repeated Cryptocovenv1_ApprovalForAll cryptocovenv1_approval_for_alls = 2;
+    repeated Cryptocovenv1_OwnershipTransferred cryptocovenv1_ownership_transferreds = 3;
+    repeated Cryptocovenv1_Transfer cryptocovenv1_transfers = 4;
+}
+message Cryptocovenv1_Approval {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes owner = 5;
+    bytes approved = 6;
+    string token_id = 7;
+}
+message Cryptocovenv1_ApprovalForAll {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes owner = 5;
+    bytes operator = 6;
+    bool approved = 7;
+}
+message Cryptocovenv1_OwnershipTransferred {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_owner = 5;
+    bytes new_owner = 6;
+}
+message Cryptocovenv1_Transfer {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes from = 5;
+    bytes to = 6;
+    string token_id = 7;
+}
+  
