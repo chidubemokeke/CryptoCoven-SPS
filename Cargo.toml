@@ -1,5 +1,5 @@
 [package]
-name = "cryptocoven"
+name = "crypto_coven"
 version = "0.0.1"
 edition = "2021"
 
@@ -8,8 +8,8 @@ name = "substreams"
 crate-type = ["cdylib"]
 
 [dependencies]
-ethabi = "17"
-hex-literal = "0.3.4"
+ethabi = "18.0.0"
+hex-literal = "0.4.1"
 num-bigint = "0.4"
 num-traits = "0.2.15"
 prost = "0.13.3"

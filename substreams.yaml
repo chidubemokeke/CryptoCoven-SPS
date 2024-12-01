@@ -1,10 +1,12 @@
 specVersion: v0.1.0
 package:
-  name: cryptocoven
+  name: crypto_coven
   version: v0.1.0
 
 imports:
-    ethcommon: https://spkg.io/streamingfast/ethereum-common-v0.3.0.spkg
+  ethcommon: https://spkg.io/streamingfast/ethereum-common-v0.3.0.spkg
+  graph: https://github.com/streamingfast/substreams-sink-subgraph/releases/download/v0.1.0/substreams-sink-subgraph-protodefs-v0.1.0.spkg
+  entity: https://github.com/streamingfast/substreams-entity-change/releases/download/v0.2.1/substreams-entity-change-v0.2.1.spkg
 
 protobuf:
   files:
@@ -21,16 +23,11 @@ binaries:
     file: ./target/wasm32-unknown-unknown/release/substreams.wasm
 
 modules:
-
-  - name: map_events
+  - name: map_transfers
     kind: map
     initialBlock: 13547115
-    blockFilter:
-      module: ethcommon:index_events
-      query:
-        string: evt_addr:0x5180db8f5c931aae63c74266b211f580155ecac8
     inputs:
       - source: sf.ethereum.type.v2.Block
     output:
-      type: proto:contract.v1.Events
+      type: proto:contract.v1.Transfers
 network: mainnet
